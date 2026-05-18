@@ -13,7 +13,7 @@ function createDownloadButton(platform, info, version) {
     if (platform === "mac") {
         const fileName = info.file.includes('/') ? info.file.split('/').pop() : info.file;
         
-        downloadUrl = `https://github.com/gotorfi/HolyPresenterPages/releases/download/${version}/${fileName}`;
+        downloadUrl = `https://github.com/gotorfi/HolyPresenterPages/releases/download/v${version}/${fileName}`;
     } else {
         downloadUrl = `apps/${info.file}`;
     }
