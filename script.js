@@ -1,5 +1,4 @@
 async function loadUpdates() {
-
     const response = await fetch("updates.json");
     const data = await response.json();
 
@@ -7,17 +6,22 @@ async function loadUpdates() {
     renderOlder(data.updates);
 }
 
-function createDownloadButton(platform, info) {
-
-    const icon =
-        platform === "windows"
-        ? "imgs/windows.png"
-        : "imgs/mac.png";
+function createDownloadButton(platform, info, version) {
+    const icon = platform === "windows" ? "imgs/windows.png" : "imgs/mac.png";
+    
+    let downloadUrl = "";
+    if (platform === "mac") {
+        const fileName = info.file.includes('/') ? info.file.split('/').pop() : info.file;
+        
+        downloadUrl = `https://github.com/gotorfi/HolyPresenterPages/releases/download/${version}/${fileName}`;
+    } else {
+        downloadUrl = `apps/${info.file}`;
+    }
 
     return `
         <a
             class="download-btn"
-            href="apps/${info.file}"
+            href="${downloadUrl}"
             download
         >
             <img src="${icon}">
@@ -31,8 +35,8 @@ function createDownloadButton(platform, info) {
     `;
 }
 
-function renderLatest(update) {
 
+function renderLatest(update) {
     document.getElementById("latest-update").innerHTML = `
         <div class="update-entry">
 
@@ -49,10 +53,10 @@ function renderLatest(update) {
             </p>
 
             <div class="download-buttons">
+                <!-- Välitetään update.version mukaan funktiolle -->
+                ${createDownloadButton("windows", update.windows, update.version)}
 
-                ${createDownloadButton("windows", update.windows)}
-
-                ${createDownloadButton("mac", update.mac)}
+                ${createDownloadButton("mac", update.mac, update.version)}
 
             </div>
         </div>
@@ -60,12 +64,9 @@ function renderLatest(update) {
 }
 
 function renderOlder(updates) {
-
-    const container =
-        document.getElementById("older-updates");
+    const container = document.getElementById("older-updates");
 
     updates.forEach(update => {
-
         container.innerHTML += `
             <div class="update-entry">
 
@@ -80,10 +81,10 @@ function renderOlder(updates) {
                 </p>
 
                 <div class="download-buttons">
+                    <!-- Välitetään update.version mukaan myös vanhoille versioille -->
+                    ${createDownloadButton("windows", update.windows, update.version)}
 
-                    ${createDownloadButton("windows", update.windows)}
-
-                    ${createDownloadButton("mac", update.mac)}
+                    ${createDownloadButton("mac", update.mac, update.version)}
 
                 </div>
 
