@@ -1,0 +1,303 @@
+.page-wrapper {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-family: Oswald, sans-serif;
+    letter-spacing: 2px;
+}
+
+.update-entry {
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.update-entry:last-child {
+    border-bottom: none;
+}
+
+.update-meta {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+    opacity: 0.7;
+    font-size: 14px;
+}
+
+.download-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.download-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 14px 20px;
+
+    border-radius: 14px;
+
+    text-decoration: none;
+    color: white;
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    transition: 0.25s ease;
+}
+
+.download-btn:hover {
+    transform: translateY(-4px);
+
+    background: rgba(255,255,255,0.14);
+}
+
+.download-btn img {
+    width: 26px;
+    height: 26px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    font-family: Arial, sans-serif;
+    color: white;
+
+    position: relative;
+    background: black;
+}
+
+/* Loop-video taustalle */
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* Tumma overlay paremman luettavuuden vuoksi */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 40%),
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.4),
+            rgba(0,0,0,0.75)
+        );
+    z-index: -1;
+}
+
+/* Kaikki pääelementit keskelle */
+.container {
+    width: 90%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Div on keskellä, mutta sisältö EI keskellä */
+.card {
+    margin-top: 100px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+    font-size: 110px;
+    text-align: center;
+    font-family: Oswald, sans-serif;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.15),
+        0 0 30px rgba(255,255,255,0.1);
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+    margin-top: 150px;
+
+    filter:
+        drop-shadow(0 0 20px rgba(255,255,255,0.15))
+        drop-shadow(0 0 50px rgba(255,255,255,0.08));
+
+    animation: float 5s ease-in-out infinite;
+}
+@keyframes float {
+    0%,100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+.platform-icons {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.platform-icons img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    opacity: 0.9;
+    transition: 0.2s ease;
+}
+
+.platform-icons img:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+p {
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 12px;
+    background: white;
+    color: black;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+.installer-thumb {
+    display: block;
+
+    width: 550px;
+    max-width: 100%;
+
+    margin: 60px auto 40px auto;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.45),
+        0 0 40px rgba(255,255,255,0.06);
+}
+
+.version-title {
+    text-align: center;
+
+    font-size: 35px;
+
+    font-family: Oswald, sans-serif;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 0 20px rgba(255,255,255,0.12);
+}
+
+
+.main-footer {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 60px 0 20px 0;
+    backdrop-filter: blur(5px);
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; 
+}
+
+.footer-logo img {
+    height: 80px;
+    width: auto;
+}
+
+.footer-contacts {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-contacts a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: opacity 0.3s;
+}
+
+.footer-contacts a:hover {
+    opacity: 0.7;
+}
+
+.footer-email a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.footer-copyright {
+    margin-top: 20px;
+    color: #888;
+    font-size: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    padding-top: 20px;
+}

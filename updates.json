@@ -1,0 +1,31 @@
+{
+  "latest": {
+    "version": "1.0.0",
+    "date": "2026-05-17",
+    "description": "Release version! Holy Presenter is now available for everyone to download and use. I have added a lot of features and improvements since the beta version.",
+    "windows": {
+      "file": "WIN_1.0.0/Installer.exe",
+      "requires": "Windows 11"
+    },
+    "mac": {
+      "file": "MAC_1.0.0/Installer.zip",
+      "requires": "macOS 11.3.2+"
+    }
+  },
+
+  "updates": [
+    {
+      "version": "0.9.0",
+      "date": "2026-05-01",
+      "description": "New UI update and smoother animations.",
+      "windows": {
+        "file": "WIN_0.9.0/Installer.exe",
+        "requires": "Windows 11"
+      },
+      "mac": {
+        "file": "MAC_0.9.0/Installer.zip",
+        "requires": "macOS 11.3.2+"
+      }
+    }
+  ]
+}
